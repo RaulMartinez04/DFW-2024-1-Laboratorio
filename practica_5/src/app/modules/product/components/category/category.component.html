@@ -1,0 +1,35 @@
+<div class="card">
+
+    <!-- Table title  -->
+  
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md">
+          <h5 class="table-title">Categorias</h5>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Table content -->
+  
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr class="table-primary">
+            <th>ID Categoria</th>
+            <th>Código</th>
+            <th>Categoria</th>
+            <th>Estatus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cat of categories">
+            <td>{{ cat.category_id }}</td>
+            <td>{{ cat.code }}</td>
+            <td>{{ cat.category }}</td>
+            <td>{{ cat.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
