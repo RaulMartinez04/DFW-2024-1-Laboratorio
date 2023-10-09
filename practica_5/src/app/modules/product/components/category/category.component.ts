@@ -15,7 +15,10 @@ throw new Error('Method not implemented.');
 }
   categories: Category[] = [];
 
-  constructor(){}
+  constructor(
+    private formBuilder: Formbuilder){}
+  }
+
 
   ngOnInit(){
     this.getCategories();
@@ -30,4 +33,21 @@ throw new Error('Method not implemented.');
     this.categories.push(category2);
     this.categories.push(category3);
   }
+
+  onSubmit(){
+    this.submitted = true;
+
+    if(this.form.invalid) return;
+
+    this.submitted = false;
+
+    let region = new Category(0, this.form.controls['category'].value!, this.form.controls['code'].value!, 1);
+    this.regions.push(region);
+    
+    $("#modalForm").modal("hide");
+
+    alert("categoria guardada exitosamente!");
+
+  }
+  
 }
