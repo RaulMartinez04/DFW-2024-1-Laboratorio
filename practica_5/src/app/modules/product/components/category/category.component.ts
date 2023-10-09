@@ -10,6 +10,9 @@ declare var $: any;
 })
 
 export class CategoryComponent {
+onSubmit() {
+throw new Error('Method not implemented.');
+}
   categories: Category[] = [];
 
   constructor(){}
