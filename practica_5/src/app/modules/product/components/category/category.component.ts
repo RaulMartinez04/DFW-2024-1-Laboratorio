@@ -41,8 +41,8 @@ throw new Error('Method not implemented.');
 
     this.submitted = false;
 
-    let region = new Category(0, this.form.controls['category'].value!, this.form.controls['code'].value!, 1);
-    this.regions.push(region);
+    let category = new Category(0, this.form.controls['category'].value!, this.form.controls['code'].value!, 1);
+    this.categories.push(category);
     
     $("#modalForm").modal("hide");
 
