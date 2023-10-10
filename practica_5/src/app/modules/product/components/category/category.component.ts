@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from '../../_models/category';
+import { FormBuilder, Validators } from '@angular/forms';
 
 declare var $: any;
 
@@ -10,24 +11,27 @@ declare var $: any;
 })
 
 export class CategoryComponent {
-onSubmit() {
-throw new Error('Method not implemented.');
-}
   categories: Category[] = [];
 
-  constructor(
-    private formBuilder: Formbuilder){}
-  }
+  form = this.formBuilder.group({
+    category: ["", [Validators.required]],
+    code: ["", [Validators.required]],
+  });
 
+  submitted = false;
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ){}
 
   ngOnInit(){
     this.getCategories();
   }
 
   getCategories(){
-    let category1 = new Category(1, 190406, "videojuego", "agotado");
-    let category2 = new Category(2, 311020, "videojuego", "rentado");
-    let category3 = new Category(3, 190972, "serie", "agotado");
+    let category1 = new Category(1, "190406", "videojuego", "agotado");
+    let category2 = new Category(2, "311020", "videojuego", "rentado");
+    let category3 = new Category(3, "190972", "serie", "agotado");
 
     this.categories.push(category1);
     this.categories.push(category2);
@@ -41,13 +45,20 @@ throw new Error('Method not implemented.');
 
     this.submitted = false;
 
-    let category = new Category(0, this.form.controls['category'].value!, this.form.controls['code'].value!, 1);
-    this.categories.push(category);
+    let categoria = new Category(0, this.form.controls['code'].value!, this.form.controls['category'].value!, "Aprobado");
+    this.categories.push(categoria);
     
     $("#modalForm").modal("hide");
 
-    alert("categoria guardada exitosamente!");
+    alert("Región guardada exitosamente!");
 
   }
-  
+
+  // modals 
+
+  showModalForm(){
+    this.form.reset();
+    this.submitted = false;
+    $("#modalForm").modal("show");
+  }
 }

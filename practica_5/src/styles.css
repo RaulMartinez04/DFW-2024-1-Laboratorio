@@ -1,16 +1,54 @@
-h5{
-   text-align: center;
-} 
+/* Table  */
 
-.d-flex{
-    margin-left: 30%;
-}
-
-#contenido{
-
-    margin-left: auto;
-    margin-right: auto;
+.table-title{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   
-   max-width: 1200px;
-}
-
+  /* Modal  */
+  
+  .modal-content{
+    padding: 0px 8px;
+  }
+  
+  .modal-header{
+    padding: 8px 16px !important;
+  }
+  
+  .form-group{
+    margin-bottom: 16px;
+  }
+  
+  .form-button{  
+    margin-top: 32px;
+    margin-bottom: 16px;
+  
+    text-align: center;
+  }
+  
+  .btn-new{
+    float: right;
+    width: 200px;
+  }
+  
+  .btn-form{
+    width: 200px;
+  }
+  
+  .modal-close-button{
+    border: none;
+    background-color: white;
+  }
+  
+  .modal-close-button-x{
+    color: #8181A5;
+    font-size: 32px;
+  }
+  
+  /* Color  */
+  
+  .color-red{
+    color: red;
+  }
+  

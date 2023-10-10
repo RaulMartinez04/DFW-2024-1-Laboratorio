@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Category } from './modules/product/_models/category';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,4 @@ import { Category } from './modules/product/_models/category';
 })
 export class AppComponent {
   title = 'practica_5';
-  
 }
