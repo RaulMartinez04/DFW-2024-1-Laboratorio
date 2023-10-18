@@ -51,9 +51,9 @@ export class CategoryComponent {
   }
 
   getCategories(){
-    let category1 = new Category(1, "190406", "videojuego", 0);
-    let category2 = new Category(2, "311020", "videojuego", 1);
-    let category3 = new Category(3, "190972", "serie", 0);
+    let category1 = new Category(1, "190406", "Videojuego", 0);
+    let category2 = new Category(2, "311020", "Videojuego", 1);
+    let category3 = new Category(3, "190972", "Serie", 0);
 
     this.categories.push(category1);
     this.categories.push(category2);
