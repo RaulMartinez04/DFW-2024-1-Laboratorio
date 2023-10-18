@@ -33,7 +33,7 @@ export class CategoryComponent {
     for(let category of this.categories){
       if(category.category_id == id){
         category.status = 0;
-        alert("Región desactivada exitosamente!");
+        alert("Categoria desactivada exitosamente!");
         break;
       }
     }
@@ -44,7 +44,7 @@ export class CategoryComponent {
     for(let category of this.categories){
       if(category.category_id == id){
         category.status = 1;
-        alert("Región activada exitosamente!");
+        alert("Categoria activada exitosamente!");
         break;
       }
     }
@@ -76,13 +76,13 @@ export class CategoryComponent {
 
     this.submitted = false;
 
-    let category = new Category(0, this.form.controls['category'].value!, this.form.controls['code'].value!, 1);
+    let category = new Category(0, this.form.controls['code'].value!, this.form.controls['category'].value!, 1);
     console.log(this.form.value);
     this.categories.push(category);
     
     $("#modalForm").modal("hide");
 
-    alert("Región guardada exitosamente!");
+    alert("Categoria guardada exitosamente!");
 
   }
 
@@ -103,7 +103,7 @@ export class CategoryComponent {
     
     $("#modalForm").modal("hide");
 
-    alert("Región actualizada exitosamente!");
+    alert("Categoria actualizada exitosamente!");
 
     this.categoryUpdated = 0;
 
