@@ -16,7 +16,7 @@
 }
 
 .td-status-enable{
-  background-color: #4e73df;
+  background-color: green;
 }
 
 .td-status-disable{
@@ -107,12 +107,12 @@
 }
 
 .enable-item{
-  color: blue !important;
+  color: green !important;
   cursor: pointer;
 }
 
 .enable-item:hover{
-  color: white !important;
+  color: green !important;
 }
 
 .disable-item{
@@ -121,5 +121,5 @@
 }
 
 .disable-item:hover{
-  color: white !important;
+  color: red !important;
 }
