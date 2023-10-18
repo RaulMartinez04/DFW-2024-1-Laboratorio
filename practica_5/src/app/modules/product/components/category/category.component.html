@@ -10,7 +10,10 @@
         <h5 class="table-title">Categorías</h5>
       </div>
       <div class="col-md">
-        <button type="button" class="btn btn-primary btn-new" (click)="showModalForm()">Nueva categoria</button>
+        <button type="button" class="btn btn-primary btn-new" (click)="showModalForm()">
+          <i class="ph ph-plus-circle icon-text-button"></i>
+          Nueva categoría
+        </button>
       </div>
     </div>
   </div>
@@ -25,14 +28,39 @@
             <th>Código</th>
             <th>Categoria</th>
             <th>Estatus</th>
+            <th>Más</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cat of categories">
-            <td>{{ cat.category_id }}</td>
+          <tr *ngFor="let cat of categories; let i = index">
+            <td>{{ i + 1 }}</td>
             <td>{{ cat.code }}</td>
             <td>{{ cat.category }}</td>
-            <td>{{ cat.status }}</td>
+            <td>
+              <div class="td-status"
+              [ngClass]="{'td-status-enable': cat.status == 1, 'td-status-disable': cat.status == 0}" >
+                {{ cat.status == 0 ? "Inactivo" : "Activo" }}
+              </div>
+            </td>
+            <td>
+              <div class="dropdown">
+                <button class="dropdown-button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="ph ph-dots-three-outline-vertical icon-menu"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" (click)="updateCategory(cat)">
+                    <i class="ph ph-note-pencil icon-text-ul"></i>Editar
+                  </a>
+                  <a *ngIf="cat.status == 0" class="dropdown-item enable-item" (click)="enableCategory(cat.category_id)">
+                    <i class="ph ph-check-circle icon-text-ul"></i> Activar
+                  </a>
+                  <a *ngIf="cat.status == 1" class="dropdown-item disable-item" (click)="disableCategory(cat.category_id)">
+                    <i class="ph ph-x-circle icon-text-ul"></i> Desactivar
+                  </a>
+                </div>
+              </div>
+              
+            </td>
           </tr>
         </tbody>
       </table>
