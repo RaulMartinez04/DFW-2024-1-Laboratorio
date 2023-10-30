@@ -120,7 +120,7 @@ export class CategoryComponent {
 
 
   onSubmit(){
-    // valida el formulario
+    // Valida el formulario
     this.submitted = true;
     if(this.form.invalid) return;
     this.submitted = false;
@@ -134,6 +134,7 @@ export class CategoryComponent {
   }
 
   onSubmitCreate(){
+    console.log(this.form.value);
     this.categoryService.createCategory(this.form.value).subscribe(
       res => {
         // muestra mensaje de confirmación

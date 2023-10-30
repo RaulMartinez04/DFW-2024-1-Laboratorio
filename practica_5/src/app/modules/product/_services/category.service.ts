@@ -15,7 +15,7 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   createCategory(category: any) {
-    return this.http.post(this.url + this.route, Category);
+    return this.http.post(this.url + this.route, category);
   }
 
   enableCategory(id: number) {
@@ -34,7 +34,7 @@ export class CategoryService {
     return this.http.get<Category[]>(this.url + this.route);
   }
 
-  updateCategory(Category: any, id: number) {
-    return this.http.put(this.url + this.route + "/" + id, Category);
+  updateCategory(category: any, id: number) {
+    return this.http.put(this.url + this.route + "/" + id, category);
   }
 }
