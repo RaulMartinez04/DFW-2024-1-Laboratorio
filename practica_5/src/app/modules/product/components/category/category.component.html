@@ -86,7 +86,7 @@
           <!-- Category  -->
 
           <div class="form-group">
-            <label for="category">Categoria <span class="color-red">*</span> </label>
+            <label for="category">Categoría <span class="color-red">*</span> </label>
             <input type="text" class="form-control" formControlName="category" id="category" placeholder="Nombre de la categoria..." 
               [ngClass]="{'is-invalid': form.controls['category'].errors && submitted}" >
             <div *ngIf="form.controls['category'].errors && submitted">
@@ -108,9 +108,8 @@
           <!-- button  -->
           
           <div class="form-button">
-            <button type="submit" class="btn btn-primary btn-form">Guardar</button>
+            <button type="submit" class="btn btn-primary btn-form"> Guardar</button>
           </div>
-
         </form>
       </div>
     </div>
