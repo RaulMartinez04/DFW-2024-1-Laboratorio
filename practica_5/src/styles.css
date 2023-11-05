@@ -16,7 +16,7 @@
 }
 
 .td-status-enable{
-  background-color: green;
+  background-color: #4e73df;
 }
 
 .td-status-disable{
@@ -44,6 +44,8 @@
   text-align: center;
 }
 
+/* Buttons  */
+
 .btn-new{
   float: right;
   width: 200px;
@@ -51,6 +53,14 @@
 
 .btn-form{
   width: 200px;
+}
+
+.btn-return{
+  cursor: pointer;
+}
+
+.btn-return:hover{
+  color: blue;
 }
 
 .modal-close-button{
@@ -63,6 +73,10 @@
   font-size: 32px;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 /* Color  */
 
 .color-red{
@@ -72,8 +86,9 @@
 /* Icon  */
 
 .icon-text-button{
-  font-size: 14px;
+  /* font-size: 14px; */
   margin-right: 4px;
+  vertical-align:text-bottom
 }
 
 .icon-text-ul{
@@ -107,12 +122,12 @@
 }
 
 .enable-item{
-  color: green !important;
+  color: blue !important;
   cursor: pointer;
 }
 
 .enable-item:hover{
-  color: green !important;
+  color: white !important;
 }
 
 .disable-item{
@@ -121,5 +136,5 @@
 }
 
 .disable-item:hover{
-  color: red !important;
+  color: white !important;
 }

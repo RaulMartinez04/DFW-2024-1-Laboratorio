@@ -4,11 +4,15 @@ import { CategoryComponent } from './components/category/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './components/product/product.component';
+import { ProductImageComponent } from './components/product-image/product-image.component';
 
 
 @NgModule({
   declarations: [
-    CategoryComponent
+    CategoryComponent,
+    ProductComponent,
+    ProductImageComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [
-    CategoryComponent
+    CategoryComponent,
+    ProductComponent,
+    ProductImageComponent
   ]
 
 })
