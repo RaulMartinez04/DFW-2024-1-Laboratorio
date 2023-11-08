@@ -23,8 +23,6 @@ import { ProductImageComponent } from './components/product-image/product-image.
   ],
   exports: [
     CategoryComponent,
-    ProductComponent,
-    ProductImageComponent
   ]
 
 })

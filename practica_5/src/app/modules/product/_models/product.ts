@@ -8,6 +8,9 @@ export class Product{
     price: number = 0;
     stock: number = 0;
     category_id: number = 0;
-    image: ProductImage = new ProductImage();
     status: number = 0;
+
+    getProductId(): number {
+        return this.product_id;
+    }  
 }
