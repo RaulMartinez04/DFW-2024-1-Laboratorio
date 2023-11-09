@@ -21,11 +21,10 @@
     <div class="row">
 
         <!-- product image  -->
-    
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body-product text-center">
-                    <img src="{{ image != '' ? image: 'assets/img/ProductDefault.png' }}" alt="..." class="img-thumbnail product-image">
+                    <img src="{{ image && image.image ? image.image : 'assets/img/ProductDefault.png' }}" alt="..." class="img-thumbnail product-image">
                 </div>
                 <div class="edit-product-image text-center">
                     <label for="uploadImage" class="cursor-pointer">
@@ -36,6 +35,7 @@
                 </div>
             </div>
         </div>
+        
     
         <!-- product data  -->
     

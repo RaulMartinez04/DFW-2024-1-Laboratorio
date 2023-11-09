@@ -22,7 +22,7 @@ export class ProductImageComponent {
 
   product: any | Product = new Product(); // cliente consultado
   gtin: any | string = ""; // rfc del cliente consultado
-  image: any | string = "";
+  image: any | ProductImage = new ProductImage();
 
   categories: Category[] = []; // lista de regiones
   category: any | Category = new Category(); // datos de la región del cliente
@@ -55,7 +55,6 @@ export class ProductImageComponent {
 
     if(this.gtin){
       this.getProduct();
-      this.getProductImage();
     }else{
       Swal.fire({
         position: 'top-end',
@@ -76,6 +75,18 @@ export class ProductImageComponent {
       res => {
         this.product = res; // asigna la respuesta de la API a la variable de producto
         this.getCategory(this.product.product_id);
+        
+        // Realiza la llamada al servicio productImageService para obtener las imágenes
+        this.productImageService.getProductImages(this.product.product_id).subscribe(
+          images => {
+              // Asigna la primera imagen del arreglo de imágenes a la variable image
+              this.image = images[0];
+              console.log(this.image);
+          },
+          err => {
+            this.image = null;
+          }
+        );
       },
       err => {
         // muestra mensaje de error
@@ -159,34 +170,13 @@ export class ProductImageComponent {
 
   // product image
 
-  getProductImage() {
-    this.productImageService.getProductImages(this.product.product_id).subscribe(
-      images => {
-        if (images && images.length > 0) {
-          // Supongamos que quieres la primera imagen asociada al producto
-          this.image = images[0].image;
-        }
-      },
-      err => {
-        // muestra mensaje de error
-        Swal.fire({
-          position: 'top-end',
-          icon: 'error',
-          toast: true,
-          showConfirmButton: false,
-          text: err.error.message,
-          background: '#F8E8F8',
-          timer: 2000
-        });
-      }
-    );
-  }
-
   updateProductImage(image: string){
     let productImage: ProductImage = new ProductImage();
-    productImage.product_image_id = this.product.image.customer_image_id;
+    productImage.product_image_id = this.image.product_image_id;
+    productImage.product_id = this.image.product_id;
     productImage.image = image;
 
+    console.log(productImage);
     this.productImageService.createProductImage(productImage).subscribe(
       res => {
         // muestra mensaje de confirmación
