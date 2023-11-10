@@ -13,6 +13,7 @@ export class ProductImagesService {
   constructor(private http: HttpClient) { }
 
   createProductImage(product_image: any) {
+    console.log("Query completo:" + this.url + this.route, product_image)
     return this.http.post(this.url + this.route, product_image);
   }
   

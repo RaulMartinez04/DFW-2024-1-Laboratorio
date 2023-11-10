@@ -174,7 +174,7 @@ export class ProductImageComponent {
     let productImage: ProductImage = new ProductImage();
     productImage.product_image_id = this.image.product_image_id;
     productImage.product_id = this.image.product_id;
-    productImage.image = image;
+    productImage.image = "assets/img/" + image.substring(2);
 
     console.log(productImage);
     this.productImageService.createProductImage(productImage).subscribe(
