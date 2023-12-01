@@ -44,7 +44,7 @@ export class CategoryComponent {
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La región ha sido desactivada',
+          text: 'La categoria ha sido desactivada',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
@@ -75,7 +75,7 @@ export class CategoryComponent {
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La región ha sido activada',
+          text: 'La categoria ha sido activada',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
