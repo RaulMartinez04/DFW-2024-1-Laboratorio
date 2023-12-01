@@ -81,7 +81,7 @@ export class CategoryComponent {
           timer: 2000
         });
 
-        this.getCategories(); // consulta regiones con los cambios realizados
+        this.getCategories(); // consulta caegorias con los cambios realizados
       },
       err => {
         // muestra mensaje de error
@@ -101,7 +101,7 @@ export class CategoryComponent {
   getCategories(){
     this.categoryService.getCategories().subscribe(
       res => {
-        this.categories = res; // asigna la respuesta de la API a la lista de regiones
+        this.categories = res; // asigna la respuesta de la API a la lista de categorias
       },
       err => {
         // muestra mensaje de error
