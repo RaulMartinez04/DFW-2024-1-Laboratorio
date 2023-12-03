@@ -1,9 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Cart } from '../_models/cart';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor() { }
+  private url = "http://localhost:8080";
+  private route = "/cart";
+
+  constructor(private http: HttpClient) { }
+
+  addToCart(cart: any) {
+    return this.http.post(this.url + this.route, cart);
+  }
+
+  deleteCart(id: number) {
+    return this.http.delete(this.url + this.route + "/" + id);
+  }
+
+  /* REQUERIMIENTO 4. Implementar servicio Cart - función getCart() */
+  getCart() {}
+
+  /* REQUERIMIENTO 4. Implementar servicio Cart - función removeFromCart() */
+  removeFromCart() {}
 }
