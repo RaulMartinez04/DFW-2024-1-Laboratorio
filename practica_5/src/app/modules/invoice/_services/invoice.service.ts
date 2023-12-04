@@ -17,9 +17,13 @@ export class InvoiceService {
   }
 
   /* REQUERIMIENTO 4. Implementar servicio Invoice - función getInvoices() */
-  getInvoices() {}
+  getInvoices() {
+    return this.http.get<Invoice>(this.url + this.route +"/items");
+  }
 
   /* REQUERIMIENTO 4. Implementar servicio Invoice - función generateInvoice() */
-  generateInvoice() {}
+  generateInvoice() {
+    
+  }
 
 }
