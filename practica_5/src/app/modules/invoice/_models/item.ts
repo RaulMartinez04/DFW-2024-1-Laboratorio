@@ -1,4 +1,3 @@
-import { Product } from "../../product/_models/product";
 
 export class Item{
     item_id: number =0;

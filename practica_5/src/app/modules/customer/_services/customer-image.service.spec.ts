@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CostumerImageService } from './costumer-image.service';
+import { CostumerImageService } from './customer-image.service';
 
 describe('CostumerImageService', () => {
   let service: CostumerImageService;

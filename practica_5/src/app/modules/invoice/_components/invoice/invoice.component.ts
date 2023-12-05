@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { InvoiceService } from '../../_services/invoice.service';
+import { Router } from '@angular/router';
+import { DtoInvoiceList } from '../../_dtos/dto-invoice-list';
+import Swal from 'sweetalert2';
+
+declare var $: any; // jquery
 
 @Component({
   selector: 'app-invoice',
@@ -6,5 +12,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent {
+  
+  invoices: DtoInvoiceList[]=[]
+
+  constructor(
+    private invoiceService: InvoiceService,
+    private router: Router
+  ){}
+
+  ngOnInit(){
+    this.getInvoices();
+  }
+  
+  getInvoices() {
+    this.invoiceService.getInvoices().subscribe(
+      res => {
+        this.invoices = res; // asigna la respuesta de la API a la lista de clientes
+      },
+      err => {
+        // muestra mensaje de error
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          toast: true,
+          showConfirmButton: false,
+          text: err.error.message,
+          background: '#F8E8F8',
+          timer: 2000
+        });
+      }
+    );
+  }
 
 }

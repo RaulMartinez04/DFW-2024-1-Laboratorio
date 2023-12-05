@@ -4,6 +4,7 @@ import { CartService } from '../../_services/cart.service';
 import Swal from 'sweetalert2';
 import { Route, Router } from '@angular/router';
 
+declare var $: any; // jquery
 
 @Component({
   selector: 'app-cart',

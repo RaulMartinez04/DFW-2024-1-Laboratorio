@@ -3,6 +3,7 @@ export class Invoice{
     cart_id: number=0;
     description: string="";
     rfc: string="";
+    
 
     getCartId(){
         return this.cart_id;
