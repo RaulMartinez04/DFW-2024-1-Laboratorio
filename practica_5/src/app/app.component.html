@@ -1,6 +1,8 @@
-<header>
-    <div class="container-hero">
-      <div class="container hero">
+<body>
+  <!-- CABECERA DE LA PÁGINA -->
+
+  <header>
+    <div class="contenedor">
           <div class="customer-support">
               <i class="ph ph-headset"></i>
               <div class="content-customer-support">
@@ -9,22 +11,18 @@
               </div>
           </div>
 
-        <div class="container-logo">
-            <i class="ph ph-user-gear"></i>
-            <h1 class="logo">
-                <a href="/">Administrador</a>
-            </h1>
+        <div class="contenedor-logo">
+            <img src="/assets/img/LogoEmpresa.png" alt="">
         </div>
 
         <div class="container-user">
             <i class="ph ph-user"></i>
-            <i class="ph ph-shopping-cart"></i>
+            <i class="ph-fill ph-basket"></i>
             <div class="content-shopping-cart">
               <span class="text">Carrito</span>
               <span class="number">(0)</span>
             </div>
         </div>
-      </div>
     </div>
 
     <!-- Inicio Barra de navegación -->
@@ -37,6 +35,7 @@
           <li><a href="/product">Productos</a></li>
           <li><a href="/category">Categorías</a></li>
           <li><a href="#">Clientes</a></li>
+          <li><a href="/region">Regiones</a></li>
           <li><a href="#">Acerca de nosotros</a></li>
         </ul>
 
@@ -50,10 +49,11 @@
     </div>
 
     <!-- Fin Barra de navegación -->
+    
 </header>
 
 
-<!-- Inicio Carrusel promocional -->
+<!-- Inicio Carrusel promocional 
 <section class="banner">
   <div class="slider-box">
     <ul>
@@ -99,5 +99,7 @@
   </div>
 </section>
     
-<!-- Fin Carrusel promocional -->
+-->
+</body>
+
 <router-outlet></router-outlet>

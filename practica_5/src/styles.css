@@ -1,16 +1,43 @@
-/* Table  */
+/* ********************************** */
+/*           TITULO TABLA	            */
+/* ********************************** */
 
 .table-title{
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
-.td-status {
-  position: absolute; /* Cambia a posición absoluta */
-  bottom: 15px; /* Coloca el estado en la parte inferior */
-  right: 5px; /* Coloca el estado en la parte derecha */
-  margin: 10px; /* Agrega un margen para separar el estado del borde */
+/* ********************************** */
+/*              TARJETAS	            */
+/* ********************************** */
+
+.card {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+/* ********************************** */
+/*               ESTATUS	            */
+/* ********************************** */
+
+.td-status{
+  position: absolute;
   width: 90px;
   text-align: center;
   border-radius: 8px;
@@ -18,14 +45,16 @@
 }
 
 .td-status-enable{
-  background-color: #4e73df;
+  background-color: #276f02;
 }
 
 .td-status-disable{
-  background-color: #e74a3b;
+  background-color: #a30800;
 }
 
-/* Modal  */
+/* ********************************** */
+/*               MODAL	              */
+/* ********************************** */
 
 .modal-content{
   padding: 0px 8px;
@@ -33,36 +62,6 @@
 
 .modal-header{
   padding: 8px 16px !important;
-}
-
-.form-group{
-  margin-bottom: 16px;
-}
-
-.form-button{  
-  margin-top: 32px;
-  margin-bottom: 16px;
-
-  text-align: center;
-}
-
-/* Buttons  */
-
-.btn-new{
-  float: right;
-  width: 200px;
-}
-
-.btn-form{
-  width: 200px;
-}
-
-.btn-return{
-  cursor: pointer;
-}
-
-.btn-return:hover{
-  color: blue;
 }
 
 .modal-close-button{
@@ -79,6 +78,42 @@
   cursor: pointer;
 }
 
+/* ********************************** */
+/*             FORMULARIO	            */
+/* ********************************** */
+
+.form-group{
+  margin-bottom: 16px;
+}
+
+.form-button{  
+  margin-top: 32px;
+  margin-bottom: 16px;
+
+  text-align: center;
+}
+
+/* ********************************** */
+/*              BOTONES	              */
+/* ********************************** */
+
+.btn-new{
+  float: right;
+  width: 200px;
+}
+
+.btn-form{
+  width: 200px;
+}
+
+.btn-return{
+  cursor: pointer;
+}
+
+.btn-return:hover{
+  color: #112442;
+}
+
 /* Color  */
 
 .color-red{
@@ -89,12 +124,13 @@
   background-color: white !important;
 }
 
-/* Icon  */
+/* ********************************** */
+/*               ÍCONO	              */
+/* ********************************** */
 
 .icon-text-button{
-  /* font-size: 14px; */
-  margin-right: 4px;
-  vertical-align:text-bottom;
+  margin-right: 5px;
+  vertical-align:text-top;
 }
 
 .icon-text-ul{
@@ -111,11 +147,13 @@
   color: blue;
 }
 
-/* ul dropdown  */
+/* ********************************** */
+/*             DROPDOWN	              */
+/* ********************************** */
 
 .dropdown-button{
   border: none;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .dropdown-item{
@@ -124,7 +162,7 @@
 }
 
 .dropdown-item:hover{
-  color: blue !important;
+  color: #112442 !important;
 }
 
 .enable-item{
@@ -142,19 +180,5 @@
 }
 
 .disable-item:hover{
-  color: red !important;
-}
-
-.card {
-  margin-left: 3rem;
-  margin-right: 1rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid #e3e6f0;
-  border-radius: 0.35rem;
+  color: #a30800 !important;
 }
