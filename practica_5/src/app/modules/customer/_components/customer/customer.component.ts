@@ -1,56 +1,66 @@
 import { Component } from '@angular/core';
-import { Category } from '../../_models/category';
+
+import { DtoCustomerList } from '../../_dtos/dto-customer-list';
+import { Region } from '../../_models/region';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CategoryService } from '../../_services/category.service';
+import { CustomerService } from '../../_services/customer.service';
+import { RegionService } from '../../_services/region.service';
 
 import Swal from'sweetalert2'; // sweetalert
+import { Router } from '@angular/router';
 
-declare var $: any;
+declare var $: any; // jquery
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  selector: 'app-customer',
+  templateUrl: './customer.component.html',
+  styleUrls: ['./customer.component.css']
 })
+export class CustomerComponent {
+  customers: DtoCustomerList[] = []; // lista de clientes
+  regions: Region[] = []; // lista de regiones
 
-export class CategoryComponent {
-  categories: Category[] = [];
-  categoryUpdated: number = 0;
-
-  // Formulario de registro.
+  // formulario de registro
   form = this.formBuilder.group({
-    category: ["", [Validators.required]],
-    code: ["", [Validators.required]],
+    name: ["", [Validators.required, Validators.pattern("^[a-zA-ZÀ-ÿ][a-zA-ZÀ-ÿ ]+$")]],
+    surname: ["", [Validators.required, Validators.pattern("^[a-zA-ZÀ-ÿ][a-zA-ZÀ-ÿ ]+$")]],
+    rfc: ["", [Validators.required, Validators.pattern("^[ñA-Z]{3,4}[0-9]{6}[0-9A-Z]{3}$")]],
+    mail: ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+    region_id: ["", [Validators.required]],
+    address: ["", [Validators.required]],
   });
 
-  submitted = false; // Indica si se envió el formulario.
+  submitted = false; // indica si se envió el formulario
 
   constructor(
-    private formBuilder: FormBuilder,
-    private categoryService: CategoryService
+    private customerService: CustomerService, // servicio customer de API
+    private formBuilder: FormBuilder, // formulario
+    private regionService: RegionService, // servicio region de API
+    private router: Router, // redirigir a otro componente
   ){}
 
+  // primera función que se ejecuta
   ngOnInit(){
-    this.getCategories();
+    this.getCustomers();
   }
 
-  // CRUD Category
+  // CRUD customer
 
-  disableCategory(id: number){
-    this.categoryService.disableCategory(id).subscribe(
+  disableCustomer(id: number){
+    this.customerService.disableCustomer(id).subscribe(
       res => {
         // muestra mensaje de confirmación
         Swal.fire({
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La categoria ha sido desactivada',
+          text: 'El cliente ha sido desactivado',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
         });
 
-        this.getCategories(); // consulta regiones con los cambios realizados
+        this.getCustomers(); // consulta clientes con los cambios realizados
       },
       err => {
         // muestra mensaje de error
@@ -67,21 +77,21 @@ export class CategoryComponent {
     );
   }
 
-  enableCategory(id: number){
-    this.categoryService.enableCategory(id).subscribe(
+  enableCustomer(id: number){
+    this.customerService.enableCustomer(id).subscribe(
       res => {
         // muestra mensaje de confirmación
         Swal.fire({
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La categoria ha sido activada',
+          text: 'El cliente ha sido activado',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
         });
 
-        this.getCategories(); // consulta caegorias con los cambios realizados
+        this.getCustomers(); // consulta clientes con los cambios realizados
       },
       err => {
         // muestra mensaje de error
@@ -98,10 +108,10 @@ export class CategoryComponent {
     );
   }
 
-  getCategories(){
-    this.categoryService.getCategories().subscribe(
+  getCustomers(){
+    this.customerService.getCustomers().subscribe(
       res => {
-        this.categories = res; // asigna la respuesta de la API a la lista de categorias
+        this.customers = res; // asigna la respuesta de la API a la lista de clientes
       },
       err => {
         // muestra mensaje de error
@@ -117,38 +127,27 @@ export class CategoryComponent {
       }
     );
   }
-
 
   onSubmit(){
-    // Valida el formulario
+    // valida el formulario
     this.submitted = true;
     if(this.form.invalid) return;
     this.submitted = false;
 
-    // ejecuta la función crear o actualizar según corresponda
-    if(this.categoryUpdated == 0){
-      this.onSubmitCreate();
-    }else{
-      this.onSubmitUpdate();
-    }
-  }
-
-  onSubmitCreate(){
-    console.log(this.form.value);
-    this.categoryService.createCategory(this.form.value).subscribe(
+    this.customerService.createCustomer(this.form.value).subscribe(
       res => {
         // muestra mensaje de confirmación
         Swal.fire({
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La categoría ha sido registrada',
+          text: 'El cliente ha sido registrado',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
         });
 
-        this.getCategories(); // consulta regiones con los cambios realizados
+        this.getCustomers(); // consulta clientes con los cambios realizados
     
         $("#modalForm").modal("hide"); // oculta el modal de registro
       },
@@ -167,25 +166,16 @@ export class CategoryComponent {
     );
   }
 
-  onSubmitUpdate(){
-    this.categoryService.updateCategory(this.form.value, this.categoryUpdated).subscribe(
+  showCustomer(rfc: string){
+    this.router.navigate(['customer/' + rfc]);
+  }
+
+  // catalogues
+
+  getRegions(){
+    this.regionService.getRegions().subscribe(
       res => {
-        // muestra mensaje de confirmación
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          toast: true,
-          text: 'La categoría ha sido actualizada',
-          background: '#E8F8F8',
-          showConfirmButton: false,
-          timer: 2000
-        });
-
-        this.getCategories(); // consulta regiones con los cambios realizados
-    
-        $("#modalForm").modal("hide"); // oculta el modal de registro
-
-        this.categoryUpdated = 0; // resetea el id de la región que se actualiza a 0
+        this.regions = res; // asigna la respuesta de la API a la lista de regiones
       },
       err => {
         // muestra mensaje de error
@@ -200,25 +190,14 @@ export class CategoryComponent {
         });
       }
     );
-  }
-
-  updateCategory(category: Category){
-    this.categoryUpdated = category.category_id;
-    
-    this.form.reset();
-    this.form.controls['category'].setValue(category.category);
-    this.form.controls['code'].setValue(category.code);
-    
-    this.submitted = false;
-    $("#modalForm").modal("show");
   }
 
   // modals 
 
   showModalForm(){
     this.form.reset();
-    this.categoryUpdated = 0;
     this.submitted = false;
+    this.getRegions();
     $("#modalForm").modal("show");
   }
 }

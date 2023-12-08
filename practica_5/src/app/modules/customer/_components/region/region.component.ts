@@ -1,56 +1,56 @@
 import { Component } from '@angular/core';
-import { Category } from '../../_models/category';
+import { Region } from '../../_models/region';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CategoryService } from '../../_services/category.service';
+import { RegionService } from '../../_services/region.service';
 
 import Swal from'sweetalert2'; // sweetalert
 
-declare var $: any;
+declare var $: any; // jquery
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  selector: 'app-customer',
+  templateUrl: './region.component.html',
+  styleUrls: ['./region.component.css']
 })
+export class RegionComponent {
+  regions: Region[] = []; // lista de regiones
+  regionUpdated: number = 0; // id de la región a actualizar
 
-export class CategoryComponent {
-  categories: Category[] = [];
-  categoryUpdated: number = 0;
-
-  // Formulario de registro.
+  // formulario de registro
   form = this.formBuilder.group({
-    category: ["", [Validators.required]],
+    region: ["", [Validators.required]],
     code: ["", [Validators.required]],
   });
 
-  submitted = false; // Indica si se envió el formulario.
+  submitted = false; // indica si se envió el formulario
 
   constructor(
-    private formBuilder: FormBuilder,
-    private categoryService: CategoryService
+    private formBuilder: FormBuilder, // formulario
+    private regionService: RegionService // servicio region de API
   ){}
 
+  // primera función que se ejecuta
   ngOnInit(){
-    this.getCategories();
+    this.getRegions();
   }
 
-  // CRUD Category
+  // CRUD region
 
-  disableCategory(id: number){
-    this.categoryService.disableCategory(id).subscribe(
+  disableRegion(id: number){
+    this.regionService.disableRegion(id).subscribe(
       res => {
         // muestra mensaje de confirmación
         Swal.fire({
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La categoria ha sido desactivada',
+          text: 'La región ha sido desactivada',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
         });
 
-        this.getCategories(); // consulta regiones con los cambios realizados
+        this.getRegions(); // consulta regiones con los cambios realizados
       },
       err => {
         // muestra mensaje de error
@@ -67,21 +67,21 @@ export class CategoryComponent {
     );
   }
 
-  enableCategory(id: number){
-    this.categoryService.enableCategory(id).subscribe(
+  enableRegion(id: number){
+    this.regionService.enableRegion(id).subscribe(
       res => {
         // muestra mensaje de confirmación
         Swal.fire({
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La categoria ha sido activada',
+          text: 'La región ha sido activada',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
         });
 
-        this.getCategories(); // consulta caegorias con los cambios realizados
+        this.getRegions(); // consulta regiones con los cambios realizados
       },
       err => {
         // muestra mensaje de error
@@ -98,10 +98,10 @@ export class CategoryComponent {
     );
   }
 
-  getCategories(){
-    this.categoryService.getCategories().subscribe(
+  getRegions(){
+    this.regionService.getRegions().subscribe(
       res => {
-        this.categories = res; // asigna la respuesta de la API a la lista de categorias
+        this.regions = res; // asigna la respuesta de la API a la lista de regiones
       },
       err => {
         // muestra mensaje de error
@@ -117,16 +117,15 @@ export class CategoryComponent {
       }
     );
   }
-
 
   onSubmit(){
-    // Valida el formulario
+    // valida el formulario
     this.submitted = true;
     if(this.form.invalid) return;
     this.submitted = false;
 
     // ejecuta la función crear o actualizar según corresponda
-    if(this.categoryUpdated == 0){
+    if(this.regionUpdated == 0){
       this.onSubmitCreate();
     }else{
       this.onSubmitUpdate();
@@ -134,21 +133,20 @@ export class CategoryComponent {
   }
 
   onSubmitCreate(){
-    console.log(this.form.value);
-    this.categoryService.createCategory(this.form.value).subscribe(
+    this.regionService.createRegion(this.form.value).subscribe(
       res => {
         // muestra mensaje de confirmación
         Swal.fire({
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La categoría ha sido registrada',
+          text: 'La región ha sido registrada',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
         });
 
-        this.getCategories(); // consulta regiones con los cambios realizados
+        this.getRegions(); // consulta regiones con los cambios realizados
     
         $("#modalForm").modal("hide"); // oculta el modal de registro
       },
@@ -168,24 +166,24 @@ export class CategoryComponent {
   }
 
   onSubmitUpdate(){
-    this.categoryService.updateCategory(this.form.value, this.categoryUpdated).subscribe(
+    this.regionService.updateRegion(this.form.value, this.regionUpdated).subscribe(
       res => {
         // muestra mensaje de confirmación
         Swal.fire({
           position: 'top-end',
           icon: 'success',
           toast: true,
-          text: 'La categoría ha sido actualizada',
+          text: 'La región ha sido actualizada',
           background: '#E8F8F8',
           showConfirmButton: false,
           timer: 2000
         });
 
-        this.getCategories(); // consulta regiones con los cambios realizados
+        this.getRegions(); // consulta regiones con los cambios realizados
     
         $("#modalForm").modal("hide"); // oculta el modal de registro
 
-        this.categoryUpdated = 0; // resetea el id de la región que se actualiza a 0
+        this.regionUpdated = 0; // resetea el id de la región que se actualiza a 0
       },
       err => {
         // muestra mensaje de error
@@ -202,12 +200,12 @@ export class CategoryComponent {
     );
   }
 
-  updateCategory(category: Category){
-    this.categoryUpdated = category.category_id;
+  updateRegion(region: Region){
+    this.regionUpdated = region.region_id;
     
     this.form.reset();
-    this.form.controls['category'].setValue(category.category);
-    this.form.controls['code'].setValue(category.code);
+    this.form.controls['region'].setValue(region.region);
+    this.form.controls['code'].setValue(region.code);
     
     this.submitted = false;
     $("#modalForm").modal("show");
@@ -217,8 +215,9 @@ export class CategoryComponent {
 
   showModalForm(){
     this.form.reset();
-    this.categoryUpdated = 0;
+    this.regionUpdated = 0;
     this.submitted = false;
     $("#modalForm").modal("show");
   }
 }
+

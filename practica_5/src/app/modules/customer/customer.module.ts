@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerComponent } from './components/customer/customer.component';
 import { CustomerImageComponent } from './components/customer-image/customer-image.component';
-import {NgxPhotoEditorModule} from "ngx-photo-editor";
+import { NgxPhotoEditorModule} from "ngx-photo-editor";
 
 @NgModule({
   declarations: [

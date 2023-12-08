@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+=======
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+>>>>>>> 0a28b4c78f8bc29c2558b2cd7462236467607c2b
 import { Region } from '../_models/region';
 
 @Injectable({
@@ -36,3 +41,7 @@ export class RegionService {
     return this.http.put(this.url + this.route + "/" + id, region);
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0a28b4c78f8bc29c2558b2cd7462236467607c2b
