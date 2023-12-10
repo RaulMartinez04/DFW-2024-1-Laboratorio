@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    padding: 10px 0 10px 0;
+    position: relative;
+    height: 100%;
+}
+
+body {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 14px;
+    color: #000; 
+}
+
+/* ********************************** */
+/*              BOTÓN	              */
+/* ********************************** */
+
+.btn-new {
+	background-color: #112442;
+	border-color: white;
+}
+
+.btn-new i {
+	color: #fff; /* Cambia el color del texto del icono */
+}
+
+.swiper {
+    width: 100%;
+    padding: 50px 0 50px 0;
+}
+
+.swiper-slide {
+    width: 300px;
+    height: 500px;
+    background-color: #1b556c;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.dropdown-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icons i {
+    font-size: 20px;
+    color: #112442;
+}
+
+.icons img {
+    width: 80px;
+}
+
+.product-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-txt {
+    flex-basis: 50%;
+}
+
+.product-txt span {
+    margin-right: 0.5cm;
+    font-size: 25px;
+    color: #FFB900;
+    font-weight: bold;
+}
+
+.product-txt h3 {
+    margin-right: 0.5cm;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.product-img {
+    flex-basis: 50%;
+    text-align: right;
+}
+
+.product-img img {
+   width: 110px;
+   height: 200px;
+   border-radius: 5px;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 12px 50px;
+    border: 1px solid #fde8ff;
+    border-radius: 25px;
+    color: #fde8ff;
+    text-decoration: none;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+
+
+
+

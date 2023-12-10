@@ -59,7 +59,7 @@ export class RegionComponent {
           icon: 'error',
           toast: true,
           showConfirmButton: false,
-          text: err.error.message,
+          text: 'La región no ha podido ser desactivada debido a que está asociado a algunos clientes.',
           background: '#F8E8F8',
           timer: 2000
         });

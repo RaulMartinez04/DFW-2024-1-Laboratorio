@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Invoice } from '../_models/invoice';
 import { HttpClient } from '@angular/common/http';
+import { Invoice } from '../_models/invoice';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +21,4 @@ export class InvoiceService {
 
   /* REQUERIMIENTO 4. Implementar servicio Invoice - función generateInvoice() */
   generateInvoice() {}
-
 }
