@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { ProductModule } from './modules/product/product.module';
 import { CustomerModule } from './modules/customer/customer.module'
 import { NgxPhotoEditorModule } from "ngx-photo-editor";
+import { AboutUsComponent } from './modules/about-us/components/about-us/about-us.component';
+import { AboutUsModule } from './modules/about-us/about-us.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductModule,
     NgxPhotoEditorModule,
-    CustomerModule
+    CustomerModule,
+    AboutUsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

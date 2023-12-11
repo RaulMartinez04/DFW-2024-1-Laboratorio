@@ -6,6 +6,7 @@ import { ProductImageComponent } from './modules/product/components/product-imag
 import { RegionComponent } from './modules/customer/components/region/region.component';
 import { CustomerComponent } from './modules/customer/components/customer/customer.component';
 import { CustomerImageComponent } from './modules/customer/components/customer-image/customer-image.component';
+import { AboutUsComponent } from './modules/about-us/components/about-us/about-us.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "category", component: CategoryComponent },
   { path: "product", component: ProductComponent },
   { path: "product/:gtin", component: ProductImageComponent},
+  { path: "aboutUs", component: AboutUsComponent}
 ]
 
 @NgModule({
