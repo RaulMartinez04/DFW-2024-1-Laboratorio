@@ -69,10 +69,24 @@ body {
 	padding-left: 1rem;
 }
 
-.content-shopping-cart {
+.icon-cart {
 	display: flex;
 	flex-direction: column;
   	margin-right: 2rem;
+}
+
+.icon-cart span {
+	display: flex;
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 20px;
+	top: 130px
 }
 
 /* ********************************** */
