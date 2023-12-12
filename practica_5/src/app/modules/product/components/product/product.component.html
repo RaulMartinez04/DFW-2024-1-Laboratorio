@@ -22,7 +22,29 @@
         <h2>{{product.product}}</h2>
         <div class="price">{{product.price}} MXN</div>
         <button class="add-cart"> Agregar al carrito </button>
-      </div>
+
+        <div class="td-status-product"
+            [ngClass]="{'td-status-enable': product.status == 1, 'td-status-disable': product.status == 0}" >
+              {{ product.status == 0 ? "Inactivo" : "Activo" }}
+        </div>
+
+        <div class="dropdown">
+          <button class="dropdown-button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ph ph-dots-three-outline-vertical icon-menu"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"  (click)="showProduct(product.gtin)">
+              <i class="ph ph-note-pencil icon-text-ul"></i>Ver detalles
+            </a>
+            <a *ngIf="product.status == 0" class="dropdown-item enable-item" (click)="enableProduct(product.product_id)">
+              <i class="ph ph-check-circle icon-text-ul"></i> Activar
+            </a>
+            <a *ngIf="product.status == 1" class="dropdown-item disable-item" (click)="disableProduct(product.product_id)">
+              <i class="ph ph-x-circle icon-text-ul"></i> Desactivar
+            </a>
+          </div>
+        </div>
+      </div>      
     </div>
   </div>
   

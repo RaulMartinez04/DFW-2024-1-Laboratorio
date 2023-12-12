@@ -27,7 +27,7 @@ body {
     max-width: 90vw;
     margin: auto;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .list-product {
@@ -37,7 +37,7 @@ body {
 }
 
 .list-product .item {
-    background-color: #f3eae8;
+    background-color: #fffbb8;
     padding: 20px;
     border-radius: 20px;
 }
@@ -67,5 +67,13 @@ body {
     cursor: pointer;
 }
 
-
+.td-status-product {
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto;
+    width: 90px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+}
 

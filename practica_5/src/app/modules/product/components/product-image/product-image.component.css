@@ -8,19 +8,26 @@
     height: 240px;
 }
 
-.edit-product{
-    color: blue;
+.edit-product {
     cursor: pointer;
     float: right;
     margin-right: 16px;
+    font-size: 18px;
 }
 
 .edit-product-image{
-    color: blue;
+    color: #112442;
     margin-bottom: 16px;
 }
 
 .product-title{
     font-size: 32px;
     margin-bottom: 16px;
+}
+
+.edit-product{
+    color: blue;
+    cursor: pointer;
+    float: right;
+    margin-right: 16px;
 }
