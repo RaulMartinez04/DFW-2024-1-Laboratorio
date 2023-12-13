@@ -4,7 +4,7 @@
 <ul>
   <li> Vista de productos.</li>
   <li> Vista de clientes. </li>
-  <li> Vista de categoríás. </li>
+  <li> Vista de categorías. </li>
   <li> Vista de regiones. </li>
 </ul>
 
