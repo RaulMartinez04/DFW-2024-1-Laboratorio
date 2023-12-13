@@ -7,8 +7,12 @@ import { CategoryService } from '../../_services/category.service';
 
 import Swal from'sweetalert2'; // sweetalert
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/modules/invoice/_services/cart.service';
+import { Cart } from 'src/app/modules/invoice/_models/cart';
 
 declare var $: any; // jquery
+const quantityString = localStorage.getItem('quantity')==null? 0 : localStorage.getItem('quantity');
+
 
 @Component({
   selector: 'app-product',
@@ -35,8 +39,11 @@ export class ProductComponent {
     private categoryService: CategoryService, // servicio category de API
     private formBuilder: FormBuilder, // formulario
     private productService: ProductService, // servicio product de API
+    private cartService: CartService,
     private router: Router, // redirigir a otro componente
-  ){}
+  ){
+    this.cartService.cart.quantity=Number(quantityString);
+  }
 
   // primera función que se ejecuta
   ngOnInit(){
@@ -187,8 +194,40 @@ export class ProductComponent {
           background: '#F8E8F8',
           timer: 2000
         });
-      }
+      },
+    
     );
+  }
+
+  addToCart(product: any){
+    
+    this.cartService.cart.quantity++;
+    localStorage.setItem('quantity', JSON.stringify(this.cartService.cart.quantity));
+    this.cartService.addToCart(product).subscribe(
+      res => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        toast: true,
+        text: 'El producto ha sido agregado al carrito',
+        background: '#E8F8F8',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    },
+    err => {
+      // muestra mensaje de error
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        toast: true,
+        showConfirmButton: false,
+        text: err.error.message,
+        background: '#F8E8F8',
+        timer: 2000
+      });
+    }
+    )
   }
 
   // modals 

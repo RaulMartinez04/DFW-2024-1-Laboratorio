@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* ********************************** */
+/*             GENERAL	              */
+/* ********************************** */
+
+
+body {
+	margin: 1rem;
+	font-family: 'Bebas Neue', cursive;
+}
+
+/* ********************************** */
+/*              BOTÓN	              */
+/* ********************************** */
+
+.btn-new {
+	background-color: #112442;
+	border-color: white;
+}
+
+.btn-new i {
+	color: #fff; /* Cambia el color del texto del icono */
+}

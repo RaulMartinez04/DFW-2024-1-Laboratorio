@@ -9,4 +9,8 @@ export class DtoCartDetails{
 
     product: Product = new Product();
     image: string = "";
+
+    getProductId(): number {
+      return this.product.getProductId();
+    }
 }
