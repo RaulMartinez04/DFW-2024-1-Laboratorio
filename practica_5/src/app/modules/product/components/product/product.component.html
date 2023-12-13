@@ -56,7 +56,8 @@
           <img *ngIf="product.product === 'Laptop Asus Vivobook 15.6 Celeron-N3350 4Gb 500Gb'" src="/assets/img/Laptop.jpeg" alt="">
           </div> 
         </div>
-        <a href="#" class="btn-1">Comprar</a>
+        <button type="button" class="add-cart" (click)="addToCart(product)">
+          <i class="ph ph-check-circle icon-text-ul"></i>Comprar</button>
       </div>
     </div>
   </div>  

@@ -8,3 +8,4 @@ export class Cart{
     status: number = 0;
     product: Product = new Product();
 }
+
