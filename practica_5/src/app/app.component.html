@@ -1,20 +1,107 @@
-<header>
-  <div clas="navbar">
-  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Práctica 7</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <form class="d-flex justify-content-start ms-2">
-          <input class="form-control me-2" type="search" placeholder="Buscar">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-      </div>
+<body>
+  <!-- CABECERA DE LA PÁGINA -->
+
+  <header>
+    <div class="contenedor">
+          <div class="customer-support">
+              <i class="ph ph-headset"></i>
+              <div class="content-customer-support">
+                  <span class="text"> Soporte al cliente </span>
+                  <span class="number"> 55-1693-8852 </span>
+              </div>
+          </div>
+
+        <div class="contenedor-logo">
+            <img src="/assets/img/LogoEmpresa.png" alt="">
+        </div>
+
+        <div class="container-user">
+            <i class="ph ph-user"></i>
+            <div class="icon-cart">
+              <i class="ph-fill ph-basket"></i>
+              <div class="content-shopping-cart">
+                <a href="/cart">Carrito</a>
+                <span class="number">{{getQuantity()}}</span>
+              </div>
+            </div>
+        </div>
     </div>
-  </nav>
-</div>
-</header>
+
+    <!-- Inicio Barra de navegación -->
+
+    <div class="container-navbar">
+      <nav class="navbar container">
+        <i class="fa-solid fa-bars"></i>
+        <ul class="menu">
+          <li><a href="">Inicio</a></li>
+          <li><a href="/product">Productos</a></li>
+          <li><a href="/category">Categorías</a></li>
+          <li><a href="/customer">Clientes</a></li>
+          <li><a href="/region">Regiones</a></li>
+          <li><a href="/aboutUs">Acerca de nosotros</a></li>
+        </ul>
+
+        <form class="search-form">
+          <input type="search" placeholder="Buscar..." />
+          <button class="btn-search">
+            <i class="ph ph-magnifying-glass"></i>
+          </button>
+        </form>
+      </nav>
+    </div>
+
+    <!-- Fin Barra de navegación -->
+    
+  </header>
+
+
+<!-- Inicio Carrusel promocional 
+<section class="banner">
+  <div class="slider-box">
+    <ul>
+        <li>
+            <div class="slide-content">
+              <img src="assets/img/Electrodomesticos.jpg" alt="" >
+              <div class="texto">
+                <p>
+                  ¡Descubre la revolución en tecnología para tu hogar! 
+                  Nuestra sección de electrodomésticos combina innovación y eficiencia para hacer tu vida más fácil. 
+                  ¡Haz que cada tarea sea un placer con nuestros productos de última generación!
+                </p>
+                <a href="/category"> Más información </a>
+              </div>
+            </div>
+        </li>
+        <li>
+            <div class="slide-content">
+                <img src="assets/img/Farmacia.jpg" alt="">
+                <div class="texto">
+                  <p>
+                    Tu bienestar es nuestra prioridad. Explora nuestra sección de farmacia, donde la salud se encuentra con la comodidad. 
+                    Encuentra productos de calidad que cuidan de ti y los tuyos, porque cada paso hacia el bienestar cuenta.
+                  </p>
+                  <a href="/category"> Más información </a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="slide-content">
+              <img src="assets/img/Videojuegos.jpg" alt="">
+              <div class="texto">
+                <p>
+                  ¡Sumérgete en la aventura! En nuestra sección de videojuegos, la emoción cobra vida. 
+                  Desde épicos mundos virtuales hasta desafíos de alta velocidad, encuentra tu próxima obsesión gaming aquí. 
+                  ¡Juega, compite y domina con la última tecnología en entretenimiento digital!
+                </p>
+                <a href="/category"> Más información </a>
+              </div>
+            </div>
+        </li>
+    </ul>
+  </div>
+</section>
+    
+-->
+</body>
 
 <router-outlet></router-outlet>

@@ -1,0 +1,65 @@
+
+<div class="card">
+
+  <!-- Table title  -->
+
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md">
+        <h5 class="table-title">Carrito</h5>
+      </div>
+      <div class="col-md">
+       
+      </div> <a type="button" class="btn btn-primary btn-new" href="/invoice">
+        <i class="ph ph-plus-circle icon-text-button"></i>
+        Crear Factura
+      </a>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr class="table-primary">
+          <th>No.</th>
+          <th>Nombre</th>
+          <th>RFC</th>
+          <th>Cantidad</th>
+          <th>Estatus</th>
+          <th>Más</th>
+        </tr>
+      </thead>
+    
+      
+      <tbody>
+        <tr *ngFor="let cartProduct of cartProducts; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ cartProduct.product.product }}</td>
+          <td>{{ cartProduct.rfc }}</td>
+          <td>{{ cartProduct.quantity}}</td>
+          <td>
+            <div class="td-status"
+            [ngClass]="{'td-status-enable': cartProduct.status == 1, 'td-status-disable': cartProduct.status == 0}" >
+              {{ cartProduct.status == 0 ? "Inactivo" : "Activo" }}
+            </div>
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="dropdown-button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ph ph-dots-three-outline-vertical icon-menu"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item"  (click)="showProduct(cartProduct.gtin)">
+                  <i class="ph ph-note-pencil icon-text-ul"></i>Ver detalles
+                </a>
+                
+              </div>
+            </div>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+</div>

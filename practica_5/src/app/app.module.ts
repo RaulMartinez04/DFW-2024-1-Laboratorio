@@ -5,15 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ProductModule } from './modules/product/product.module';
+import { CustomerModule } from './modules/customer/customer.module'
+import { NgxPhotoEditorModule } from "ngx-photo-editor";
+import { AboutUsModule } from './modules/about-us/about-us.module';
+import { InvoiceModule } from './modules/invoice/invoice.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductModule
+    ProductModule,
+    NgxPhotoEditorModule,
+    CustomerModule,
+    AboutUsModule,
+    InvoiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
